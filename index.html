@@ -18,9 +18,27 @@
         <h1>A Simple Poker Game</h1>
 
         <div id="simplepokergame"></div>
+        <div id="simplepokergame2"></div>
     </main>
     
     <script>
 
+        var deck = []; // Inizializzo il mazzo inserendo le carte 1->Re con 4 cicli, uno per ogni seme. / Create the deck by inserting cards 1->King with 4 cycles, one for each suit.
+        for (i=1; i<14; i++) {
+            deck.push({"valore" : i, "seme" : "H"});        
+        }
+        for (i=1; i<14; i++) {
+            deck.push({"valore" : i, "seme" : "D"});        
+        }
+        for (i=1; i<14; i++) {
+            deck.push({"valore" : i, "seme" : "C"});        
+        }
+        for (i=1; i<14; i++) {
+            deck.push({"valore" : i, "seme" : "S"});        
+        }
+
+
     </script>
+
+
 </body>
