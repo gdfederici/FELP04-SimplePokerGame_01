@@ -24,17 +24,18 @@
     <script>
 
         var deck = []; // Inizializzo il mazzo inserendo le carte 1->Re con 4 cicli, uno per ogni seme. / Create the deck by inserting cards 1->King with 4 cycles, one for each suit.
+        // Goobo/Jack = 11, Donna/Queen = 12, Re/King = 13
         for (i=1; i<14; i++) {
-            deck.push({"valore" : i, "seme" : "H"});        
+            deck.push({"value" : i, "suit" : "H"});        
         }
         for (i=1; i<14; i++) {
-            deck.push({"valore" : i, "seme" : "D"});        
+            deck.push({"value" : i, "suit" : "D"});        
         }
         for (i=1; i<14; i++) {
-            deck.push({"valore" : i, "seme" : "C"});        
+            deck.push({"value" : i, "suit" : "C"});        
         }
         for (i=1; i<14; i++) {
-            deck.push({"valore" : i, "seme" : "S"});        
+            deck.push({"value" : i, "suit" : "S"});        
         }
 
         var hand = []; // Creo la mano del giocatore. / Create player's hand.
@@ -42,8 +43,27 @@
             var luck = Math.floor(Math.random() * deck.length); // Numero casuale che individua una carta all'interno del mazzo. / Random number that identifies a card in the deck.
             hand = hand.concat(deck.splice(luck,1)); // Inserire la carta casuale nella mano dal giocatore e al contempo eliminarla dal mazzo. / Insert the random card into the player's hand and remove it from the deck at the same time.
         }
-        
 
+        /* ----- DELETE -----
+        text = "Mano originale<br/><ul>";
+        for (i=0; i<hand.length; i++) {
+            text += "<li>" + hand[i].value + hand[i].suit + "</li>";
+        }
+        text += "</ul>";
+        document.getElementById("simplepokergame").innerHTML = text;
+        */
+
+        hand.sort(function (a, b) { return a.value - b.value; }); // Ordinare la mano del giocatore. / Order the player's hand. 
+        
+        
+        /* ----- DELETE -----
+        text2 = "Mano ordinata<br/><ul>";
+        for (i=0; i<hand.length; i++) {
+            text2 += "<li>" + hand[i].value + hand[i].suit + "</li>";
+        }
+        text2 += "</ul>";
+        document.getElementById("simplepokergame2").innerHTML = text2;
+        */
 
     </script>
 
