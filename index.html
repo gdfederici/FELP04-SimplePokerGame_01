@@ -37,6 +37,13 @@
             deck.push({"valore" : i, "seme" : "S"});        
         }
 
+        var hand = []; // Creo la mano del giocatore. / Create player's hand.
+        for (i=0; i<5; i++) { 
+            var luck = Math.floor(Math.random() * deck.length); // Numero casuale che individua una carta all'interno del mazzo. / Random number that identifies a card in the deck.
+            hand = hand.concat(deck.splice(luck,1)); // Inserire la carta casuale nella mano dal giocatore e al contempo eliminarla dal mazzo. / Insert the random card into the player's hand and remove it from the deck at the same time.
+        }
+        
+
 
     </script>
 
