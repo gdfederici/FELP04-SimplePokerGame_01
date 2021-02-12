@@ -38,32 +38,73 @@
             deck.push({"value" : i, "suit" : "S"});        
         }
 
+        /* ----- COMMENTO TEMPORANEO PER I TEST POI DA RIMUOVERE 
         var hand = []; // Creo la mano del giocatore. / Create player's hand.
         for (i=0; i<5; i++) { 
             var luck = Math.floor(Math.random() * deck.length); // Numero casuale che individua una carta all'interno del mazzo. / Random number that identifies a card in the deck.
             hand = hand.concat(deck.splice(luck,1)); // Inserire la carta casuale nella mano dal giocatore e al contempo eliminarla dal mazzo. / Insert the random card into the player's hand and remove it from the deck at the same time.
         }
+        */
+       hand = [
+           { "value" : 1, "suit" : "H" },
+           { "value" : 2, "suit" : "D" },
+           { "value" : 3, "suit" : "H" },
+           { "value" : 7, "suit" : "H" },
+           { "value" : 5, "suit" : "H" },
+       ];
 
-        /* ----- DELETE -----
+        // ----- DELETE -----
         text = "Mano originale<br/><ul>";
         for (i=0; i<hand.length; i++) {
             text += "<li>" + hand[i].value + hand[i].suit + "</li>";
         }
         text += "</ul>";
         document.getElementById("simplepokergame").innerHTML = text;
-        */
+        
 
         hand.sort(function (a, b) { return a.value - b.value; }); // Ordinare la mano del giocatore. / Order the player's hand. 
         
+        var points = 0;
+        var colore = 0;
+        var scala = 0;
+        var scalar = 0;
+        var coppia = 0;
+
+        for (i=0; i<hand.length-1; i++) { // Controllo colore
+                if (hand[i].suit == hand[i+1].suit) { colore++; };
+        }
+        if (colore == 4) { 
+            for (i=1; i<hand.length; i++) { // Controllo scala reale
+                if (hand[i].value == 9+i) { scalar++; }
+            }
+            if (hand[0].value == 1 && scalar == 4) { points = 24; }
+            for (i=0; i<hand.length-1; i++) { // Controllo scala colore
+                if (hand[i].value+1 == hand[i+1].value) { scala++; }
+            }
+            if (scala == 4 ) { points = 23; } else { points = 20; }
+        } 
+        for (i=1; i<hand.length; i++) { // Controllo scala all'asso
+            if (hand[i].value == 9+i) { scalar++; }
+        }
+        if (hand[0].value == 1 && scalar == 4) { points = 19; }
+        for (i=0; i<hand.length-1; i++) { // Controllo scala
+            if (hand[i].value+1 == hand[i+1].value) { scala++; }
+        }
+        if (scala == 4 ) { points = 18; }
         
-        /* ----- DELETE -----
+
+
+
+
+        
+        // ----- DELETE -----
         text2 = "Mano ordinata<br/><ul>";
         for (i=0; i<hand.length; i++) {
             text2 += "<li>" + hand[i].value + hand[i].suit + "</li>";
         }
-        text2 += "</ul>";
+        text2 += "</ul><br/>Risultato<br/>" + points;
         document.getElementById("simplepokergame2").innerHTML = text2;
-        */
+        
 
     </script>
 
