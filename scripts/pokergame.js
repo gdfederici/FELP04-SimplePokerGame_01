@@ -26,10 +26,10 @@ function createHand() { // Creo la mano del giocatore. / Create player's hand.
 function createHandTest() { /* ----- CREAZIONE MANUALE DELLA MANO PER FUNZIONI DI TEST ----- */
     hand = [
         { "value" : 1, "suit" : "D" },
-        { "value" : 10, "suit" : "D" },
-        { "value" : 11, "suit" : "D" },
-        { "value" : 12, "suit" : "D" },
-        { "value" : 13, "suit" : "D" },
+        { "value" : 5, "suit" : "H" },
+        { "value" : 8, "suit" : "S" },
+        { "value" : 8, "suit" : "C" },
+        { "value" : 13, "suit" : "S" },
     ];
 }
 
@@ -102,25 +102,67 @@ function pointsHand() { // Valutazione mano del giocatore. / Player's hand evalu
 
 function displayHand() {
     let cardValue = "";
-    messageStart = "Le tue carte. / Your cards:<br/><ul>";
+    messageStart = "Le tue carte. / Your cards:<br/><br/>";
     for (i=0; i<hand.length; i++) {
         switch (hand[i].value) {
             case 13:
-                cardValue = "K";
+                cardValue = "img/13";
                 break;
             case 12:
-                cardValue = "Q";
+                cardValue = "img/12";
                 break;
             case 11:
-                cardValue = "J";
+                cardValue = "img/11";
                 break;
-            default:
-                cardValue = hand[i].value;
-        } 
-        messageStart += "<li>" + cardValue + "<sup>" + hand[i].suit + "</sup></li>";
+            case 10:
+                cardValue = "img/10";
+                break;
+            case 9:
+                cardValue = "img/9";
+                break;
+            case 8:
+                cardValue = "img/8";
+                break;
+            case 7:
+                cardValue = "img/7";
+                break;
+            case 6:
+                cardValue = "img/6";
+                break;
+            case 5:
+                cardValue = "img/5";
+                break;
+            case 4:
+                cardValue = "img/4";
+                break;
+            case 3:
+                cardValue = "img/3";
+                break;
+            case 2:
+                cardValue = "img/2";
+                break;
+            case 1:
+                cardValue = "img/1";
+                break;
+        }
+        switch (hand[i].suit) {
+            case "C":
+                cardValue +="C.jpg";
+                break;
+            case "D":
+                cardValue +="D.jpg";
+                break;
+            case "H":
+                cardValue +="H.jpg";
+                break;
+            case "S":
+                cardValue +="S.jpg";
+                break;
+        }
+        messageStart += '<img src="' + cardValue + '" />';
         cardValue = "";
     }
-    messageStart += "</ul>";
+    messageStart += "<br/>";
     document.getElementById("simplepokergame-start").innerHTML = messageStart;
 }
 
@@ -208,8 +250,8 @@ var hand = [];
 var points = 0;
 
 createDeck();
-createHand();
-//createHandTest();
+//createHand();
+createHandTest();
 displayHand();
 orderHand();
 pointsHand();
