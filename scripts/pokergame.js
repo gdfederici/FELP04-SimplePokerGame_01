@@ -27,10 +27,10 @@ function createHand() { // Creo la mano del giocatore. / Create player's hand.
 function createHandTest() { /* ----- CREAZIONE MANUALE DELLA MANO PER FUNZIONI DI TEST ----- */
     hand = [
         { "value" : 2, "suit" : "H" },
-        { "value" : 3, "suit" : "S" },
-        { "value" : 6, "suit" : "D" },
-        { "value" : 8, "suit" : "C" },
-        { "value" : 9, "suit" : "H" },
+        { "value" : 10, "suit" : "S" },
+        { "value" : 11, "suit" : "D" },
+        { "value" : 12, "suit" : "C" },
+        { "value" : 13, "suit" : "H" },
     ];
 }
 
@@ -102,9 +102,24 @@ function pointsHand() { // Valutazione mano del giocatore. / Player's hand evalu
 
 
 function displayHand() {
+    let cardValue = "";
     messageStart = "Le tue carte. / Your cards:<br/><ul>";
     for (i=0; i<hand.length; i++) {
-        messageStart += "<li>" + hand[i].value + hand[i].suit + "</li>";
+        switch (hand[i].value) {
+            case 13:
+                cardValue = "K";
+                break;
+            case 12:
+                cardValue = "Q";
+                break;
+            case 11:
+                cardValue = "J";
+                break;
+            default:
+                cardValue = hand[i].value;
+        } 
+        messageStart += "<li>" + cardValue + "<sup>" + hand[i].suit + "</sup></li>";
+        cardValue = "";
     }
     messageStart += "</ul>";
     document.getElementById("simplepokergame-start").innerHTML = messageStart;
