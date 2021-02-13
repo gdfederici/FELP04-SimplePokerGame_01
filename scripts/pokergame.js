@@ -1,6 +1,6 @@
 
 function createDeck() { // Goobo/Jack = 11, Donna/Queen = 12, Re/King = 13
-    var deck = []; // Inizializzo il mazzo inserendo le carte 1->Re con 4 cicli, uno per ogni seme. / Create the deck by inserting cards 1->King with 4 cycles, one for each suit.
+    // Inizializzo il mazzo inserendo le carte 1->Re con 4 cicli, uno per ogni seme. / Create the deck by inserting cards 1->King with 4 cycles, one for each suit.
     for (i=1; i<14; i++) {
         deck.push({"value" : i, "suit" : "H"});        
     }
@@ -17,7 +17,6 @@ function createDeck() { // Goobo/Jack = 11, Donna/Queen = 12, Re/King = 13
 
 
 function createHand() { // Creo la mano del giocatore. / Create player's hand.
-    var hand = []; 
     for (i=0; i<5; i++) { 
         let luck = Math.floor(Math.random() * deck.length); // Numero casuale che individua una carta all'interno del mazzo. / Random number that identifies a card in the deck.
         hand = hand.concat(deck.splice(luck,1)); // Inserire la carta casuale nella mano dal giocatore e al contempo eliminarla dal mazzo. / Insert the random card into the player's hand and remove it from the deck at the same time.
@@ -26,11 +25,11 @@ function createHand() { // Creo la mano del giocatore. / Create player's hand.
 
 function createHandTest() { /* ----- CREAZIONE MANUALE DELLA MANO PER FUNZIONI DI TEST ----- */
     hand = [
-        { "value" : 2, "suit" : "H" },
-        { "value" : 10, "suit" : "S" },
+        { "value" : 1, "suit" : "D" },
+        { "value" : 10, "suit" : "D" },
         { "value" : 11, "suit" : "D" },
-        { "value" : 12, "suit" : "C" },
-        { "value" : 13, "suit" : "H" },
+        { "value" : 12, "suit" : "D" },
+        { "value" : 13, "suit" : "D" },
     ];
 }
 
@@ -204,9 +203,13 @@ function displayPoints () {
     document.getElementById("simplepokergame-end").innerHTML = finalPoint;
 }
 
+var deck = [];
+var hand = [];
 var points = 0;
+
 createDeck();
-createHandTest();
+createHand();
+//createHandTest();
 displayHand();
 orderHand();
 pointsHand();
