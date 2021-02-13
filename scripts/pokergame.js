@@ -26,9 +26,9 @@ function createHand() { // Creo la mano del giocatore. / Create player's hand.
 function createHandTest() { /* ----- CREAZIONE MANUALE DELLA MANO PER FUNZIONI DI TEST ----- */
     hand = [
         { "value" : 1, "suit" : "D" },
-        { "value" : 5, "suit" : "H" },
-        { "value" : 8, "suit" : "S" },
-        { "value" : 8, "suit" : "C" },
+        { "value" : 10, "suit" : "H" },
+        { "value" : 11, "suit" : "S" },
+        { "value" : 12, "suit" : "C" },
         { "value" : 13, "suit" : "S" },
     ];
 }
@@ -250,8 +250,8 @@ var hand = [];
 var points = 0;
 
 createDeck();
-//createHand();
-createHandTest();
+createHand();
+//createHandTest();
 displayHand();
 orderHand();
 pointsHand();
