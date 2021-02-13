@@ -1,0 +1,22 @@
+/*** VARIABLES ***/
+$color-back: #218380;
+$color-text_white: #ffffff;
+$color-h: #ffbc42;
+
+/*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+
+/*** BASECAMP ***/
+body {
+    background-color: $color-back;
+    color:$color-text_white;
+}
+h1 {
+    color: $color-h;
+}
+
+/*** MAIN ***/
+.hand_points {
+    background-color: $color-h;
+    border: $color-h 3px solid;
+    border-radius: 10px; 
+}

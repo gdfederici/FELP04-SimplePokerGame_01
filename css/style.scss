@@ -1,0 +1,23 @@
+@import 'fonts';
+@import 'theme';
+
+/*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+
+/*** BASECAMP ***/
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+h1 {
+    padding: 50px 0 35px 0;
+}
+
+/*** MAIN ***/
+.hand_display {
+    margin-bottom: 50px;
+}
+.hand_points {
+    margin: 50px auto;
+    padding: 15px;
+    width: 30%;
+}

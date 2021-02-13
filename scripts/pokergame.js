@@ -102,7 +102,7 @@ function pointsHand() { // Valutazione mano del giocatore. / Player's hand evalu
 
 function displayHand() {
     let cardValue = "";
-    messageStart = "Le tue carte. / Your cards:<br/><br/>";
+    messageStart = "<p class='hand_display'>Le tue carte<br/>Your cards</p>";
     for (i=0; i<hand.length; i++) {
         switch (hand[i].value) {
             case 13:
@@ -159,7 +159,7 @@ function displayHand() {
                 cardValue +="S.jpg";
                 break;
         }
-        messageStart += '<img src="' + cardValue + '" />';
+        messageStart += '<img src="' + cardValue + '" width="200" height="306" loading="lazy" alt="A card" />';
         cardValue = "";
     }
     messageStart += "<br/>";
@@ -168,80 +168,81 @@ function displayHand() {
 
 
 function displayPoints () {
-    var finalPoint = "";
+    var finalPoint = "<p class='hand_points'>";
     switch (points) {
         case 24:  
-            finalPoint = "Scala Reale / Royal Flush";
+            finalPoint += "Scala Reale<br/>Royal Flush";
             break;
         case 23:  
-            finalPoint = "Scala Colore / Straight Flush";
+            finalPoint += "Scala Colore<br>Straight Flush";
             break;
         case 22:  
-            finalPoint = "Poker / Four of a Kind";
+            finalPoint += "Poker<br/>Four of a Kind";
             break;
         case 21:  
-            finalPoint = "Full / Full House";
+            finalPoint += "Full<br/>Full House";
             break;
         case 20:  
-            finalPoint = "Colore / Flush";
+            finalPoint += "Colore<br/>Flush";
             break;
         case 19:  
-            finalPoint = "Scala all'Asso / Straight Ace";
+            finalPoint += "Scala all'Asso<br/>Straight Ace";
             break;
         case 18:  
-            finalPoint = "Scala / Straight";
+            finalPoint += "Scala<br/>traight";
             break;
         case 17:  
-            finalPoint = "Tris / Three of a Kind";
+            finalPoint += "Tris<br/>Three of a Kind";
             break;
         case 16:  
-            finalPoint = "Doppia Coppia / Two Pair";
+            finalPoint += "Doppia Coppia<br/>Two Pair";
             break;
         case 15:  
-            finalPoint = "Coppia / Pair";
+            finalPoint += "Coppia<br/>Pair";
             break;
         case 13:  
-            finalPoint = "Carta più alta -> Re / High Card -> King";
+            finalPoint += "Carta più alta -> Re<br/>High Card -> King";
             break;
         case 12:  
-            finalPoint = "Carta più alta -> Donna / High Card -> Queen";
+            finalPoint += "Carta più alta -> Donna<br/>High Card -> Queen";
             break;
         case 11:  
-            finalPoint = "Carta più alta -> Goobbo / High Card -> Jack";
+            finalPoint += "Carta più alta -> Gobbo<br/>High Card -> Jack";
             break;
         case 10:  
-            finalPoint = "Carta più alta -> 10 / High Card -> 10";
+            finalPoint += "Carta più alta -> 10<br/>High Card -> 10";
             break;
         case 9:  
-            finalPoint = "Carta più alta -> 9 / High Card -> 9";
+            finalPoint += "Carta più alta -> 9<br/>High Card -> 9";
             break;
         case 8:  
-            finalPoint = "Carta più alta -> 8 / High Card -> 8";
+            finalPoint += "Carta più alta -> 8<br/>High Card -> 8";
             break;
         case 7:  
-            finalPoint = "Carta più alta -> 7 / High Card -> 7";
+            finalPoint += "Carta più alta -> 7<br/>High Card -> 7";
             break;
         case 6:  
-            finalPoint = "Carta più alta -> 6 / High Card -> 6";
+            finalPoint += "Carta più alta -> 6<br/>High Card -> 6";
             break;
         case 5:  
-            finalPoint = "Carta più alta -> 5 / High Card -> 5";
+            finalPoint += "Carta più alta -> 5<br/>High Card -> 5";
             break;
         case 4:  
-            finalPoint = "Carta più alta -> 4 / High Card -> 4";
+            finalPoint += "Carta più alta -> 4<br/>High Card -> 4";
             break;
         case 3:  
-            finalPoint = "Carta più alta -> 3 / High Card -> 3";
+            finalPoint += "Carta più alta -> 3<br/>High Card -> 3";
             break;
         case 2:  
-            finalPoint = "Carta più alta -> 2 / High Card -> 2";
+            finalPoint += "Carta più alta -> 2<br/>High Card -> 2";
             break;
         case 1:  
-            finalPoint = "Carta più alta -> 1 / High Card -> 1";
+            finalPoint += "Carta più alta -> 1<br/>High Card -> 1";
             break;
         default:
-            finalPoint = "Errore. / Some go wrong.";
+            finalPoint += "Errore. / Some go wrong.";
     }
+    finalPoint += "</p>"
     document.getElementById("simplepokergame-end").innerHTML = finalPoint;
 }
 
