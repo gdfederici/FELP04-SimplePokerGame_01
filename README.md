@@ -38,7 +38,7 @@ The list of hands in ranking order are as follows:
 <br/>
 
 ## Link:
-https://jslp02-simplepokergame01.netlify.app/<br/>
+https://felp04-simplepokergame01.netlify.app/<br/>
 <br/>
 
 ## Note:
